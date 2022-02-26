@@ -1,0 +1,51 @@
+<app-loading-screen *ngIf="isLoading"></app-loading-screen>
+<div class="login">
+    <div class="wrap">
+        <h1>Register</h1>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="name" (keyup.enter)="setFocus('email')">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Email</mat-label>
+                <input id="email" matInput placeholder="Placeholder" [(ngModel)]="email" (keyup.enter)="setFocus('lineID')">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Line ID</mat-label>
+                <input id="lineID" matInput placeholder="Placeholder" type="text"[(ngModel)]="lineID"
+                    (keyup.enter)="setFocus('tel')">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+                <!-- <mat-hint><a routerLink="/forgot-password" routerLinkActive="active">Forget password? </a></mat-hint> -->
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Tel</mat-label>
+                <input id="tel" matInput placeholder="Placeholder" type="text" (keypress)="numberOnly($event)"  [(ngModel)]="tel"
+                    (keyup.enter)="Register()">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+                <!-- <mat-hint><a routerLink="/forgot-password" routerLinkActive="active">Forget password? </a></mat-hint> -->
+            </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>ตำแหน่ง</mat-label>
+            <mat-select [(ngModel)]="role">
+              <mat-option value="CUSTOMER">ผู้ซื้อ</mat-option>
+              <mat-option value="DEALER" >ตัวแทนจำหน่าย</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <button mat-flat-button color="primary" (click)="Register()">Register</button>
+        <a routerLink="/login" routerLinkActive="active">Login </a>
+    </div>
+</div>

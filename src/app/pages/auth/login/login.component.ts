@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       if (!this.username || !this.password) {
         Swal.fire({
           icon: 'warning',
-          text: 'Please input username and password',
+          text: 'โปรดกรอกข้อมูลให้ครบ',
         });
         return;
       }

@@ -3,8 +3,8 @@
 }
 .card-dealer {
   float: left;
-  width: 45vw;
-  margin: 2.5vw;
+  width: 35vw;
+  margin: 1.5vw;
 }
 mat-card-header {
   width: 100%;
@@ -34,4 +34,32 @@ mat-card-content p {
 }
 .btn-card {
   width: 100%;
+}
+
+
+
+
+
+
+.example-form-field {
+  width: 100vw;
+  position: fixed;
+  top: 55px;
+  z-index: 5;
+  background-color: #fff;
+}
+.content {
+  position: relative;
+  top: 62px;
+  z-index: 4;
+}
+table {
+  width: 100%;
+}
+.add-btn {
+  float: right;
+  margin-right: 20px;
+}
+.name{
+  width: 50vw;
 }

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/auth/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
@@ -26,6 +26,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { MatSelectModule } from '@angular/material/select';
+import { CustomerLoginComponent } from './pages/auth/customer-login/customer-login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { MatTreeModule } from '@angular/material/tree';
     LoadingScreenComponent,
     SiteLayoutComponent,
     DashboardComponent,
+    RegisterComponent,
+    CustomerLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,8 @@ import { MatTreeModule } from '@angular/material/tree';
     MatBadgeModule,
     MatCheckboxModule,
     MatTreeModule,
+    MatSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

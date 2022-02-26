@@ -11,46 +11,39 @@
     <mat-divider inset vertical></mat-divider> -->
 
 
-    <!-- <mat-selection-list #menu [multiple]="false">
-      <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/farm">
+    <mat-selection-list #menu [multiple]="false">
+      <mat-list-option *ngIf="!isAdmin" (click)="drawer.toggle();openMenu()" routerLink="/farm">
         <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>account_circle</mat-icon> Farm
+          <mat-icon>account_circle</mat-icon> สินค้า
+        </button>
+      </mat-list-option>
+      <mat-list-option *ngIf="!isAdmin" (click)="drawer.toggle();openMenu()" routerLink="/farm">
+        <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>account_circle</mat-icon> ประวัติสั่งซื้อ
         </button>
       </mat-list-option>
 
-      <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/dealer">
+
+
+
+      <mat-list-option *ngIf="isAdmin" (click)="drawer.toggle();openMenu()" routerLink="/farm">
+        <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>account_circle</mat-icon> Dashboard
+        </button>
+      </mat-list-option>
+      <mat-list-option *ngIf="isAdmin" (click)="drawer.toggle();openMenu()" routerLink="/farm">
+        <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>account_circle</mat-icon> ฟาร์ม
+        </button>
+      </mat-list-option>
+
+      <mat-list-option *ngIf="isAdmin" (click)="drawer.toggle();openMenu()" routerLink="/dealer">
         <button mat-icon-button class="nav-btn-slide">
           <mat-icon>account_circle</mat-icon> ตัวแทนจำหน่าย
         </button>
       </mat-list-option>
 
-      <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/user">
-        <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>people</mat-icon> User
-        </button>
-      </mat-list-option>
-
-      <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/vote">
-        <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>ballot</mat-icon> Vote
-        </button>
-      </mat-list-option>
-
-      <mat-list-option *ngIf="isManager" (click)="drawer.toggle();openMenu()" routerLink="/vote/manager">
-        <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>ballot</mat-icon> Vote manager
-        </button>
-      </mat-list-option>
-
-      <mat-list-option (click)="logout()">
-        <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>logout</mat-icon> Logout
-        </button>
-      </mat-list-option>
-    </mat-selection-list> -->
-
-
-
+    </mat-selection-list>
     <!-- <mat-list role="list">
       <mat-list-item role="listitem">
         <a class="nav-link" routerLink="/user">
@@ -69,17 +62,11 @@
       </mat-list-item>
     </mat-list> -->
 
-
-
-    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-      <!-- This is the tree node template for leaf nodes -->
-      <!-- There is inline padding applied to this node using styles.
-        This padding value depends on the mat-icon-button width. -->
+    <!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
       <mat-tree-node class="btn-menu" *matTreeNodeDef="let node" matTreeNodeToggle routerLink="{{node.link}}"
-        (click)="drawer.toggle();openMenu()">
+        (click)="drawer.toggle();openMenu()" [hidden]="isAdmin">
         {{node.name}}
       </mat-tree-node>
-      <!-- This is the tree node template for expandable nodes -->
       <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
         <div class="mat-tree-node" routerLink="{{node.link}}">
           {{node.name}}
@@ -89,13 +76,11 @@
             </mat-icon>
           </button>
         </div>
-        <!-- There is inline padding applied to this div using styles.
-              This padding value depends on the mat-icon-button width.  -->
         <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
           <ng-container matTreeNodeOutlet></ng-container>
         </div>
       </mat-nested-tree-node>
-    </mat-tree>
+    </mat-tree> -->
     <div class="btn-logout" (click)="logout()">
       ออกจากระบบ
     </div>

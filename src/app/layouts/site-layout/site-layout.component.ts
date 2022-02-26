@@ -76,7 +76,7 @@ export class SiteLayoutComponent implements OnInit, OnDestroy {
   showFiller = false;
   public isMenu = false;
   public isMainPage = true;
-  public isManager = false;
+  public isAdmin = false;
   public isPendingBox = false;
   public localUserId: string = '';
   public isLoading: boolean = false;
@@ -90,7 +90,8 @@ export class SiteLayoutComponent implements OnInit, OnDestroy {
         }, 10);
       });
     this.auth.user$.pipe(takeUntil(this.unsubscribeAll)).subscribe((user) => {
-      this.localUserId = user?.id || '';
+      this.localUserId = user?.ID || '';
+      this.isAdmin = user?.role === 'ADMIN' || user?.role === 'EMPLOYEE';
       // this.isManager = user?.role?.name === (role.ADMIN || role.MANAGER);
     });
     this.pageService.isMainpage$

@@ -1,14 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
+import { CustomerLoginComponent } from './pages/auth/customer-login/customer-login.component';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuardGuard } from './services/auth-guard.guard';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'backend',
     component: LoginComponent,
+  },
+  {
+    path: 'login',
+    component: CustomerLoginComponent,
   },
   {
     path: '',
@@ -50,7 +60,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: 'backend',
   },
 ];
 
